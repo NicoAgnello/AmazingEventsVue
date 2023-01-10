@@ -1,0 +1,279 @@
+.imagen-logo {
+    width: 20rem;
+    padding: 2rem;
+}
+
+main {
+    background-color: rgba(128, 128, 128, 0.164);
+    min-height: 80vh;
+}
+
+.altura-total {
+    min-height: 85vh;
+}
+
+.enlaces {
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 1rem;
+}
+
+.enlaces:hover {
+    background-color: #e0046c;
+    font-weight: 800;
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgba(128, 128, 128, 0.164);
+    min-height: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+    font-style: italic;
+    color: white;
+    -webkit-text-stroke: 2px black;
+    margin: 0;
+}
+
+.nav-busca {
+    background-color: rgba(128, 128, 128, 0.164);
+}
+
+.search-icon {
+    width: 1.5rem;
+}
+
+
+
+/* Cards */
+
+
+.carta {
+    min-height: 100%;
+    border: 2px solid rgb(90, 90, 90);
+    box-shadow: 2px 6px 21px -4px rgba(0, 0, 0, 0.75);
+    background-color: rgba(82, 82, 82, 0.363);
+}
+
+.carta img {
+    border-bottom: 2px solid rgb(90, 90, 90);
+}
+
+.ver-mas {
+    background-color: rgba(0, 0, 0, 0.459);
+    padding: .7rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: white;
+    box-shadow: 2px 6px 21px -4px rgba(0, 0, 0, 0.75);
+}
+
+
+/* Tabla */
+
+.boton {
+    font-size: 2rem;
+}
+
+.tablas-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+}
+
+.tablas {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 80%;
+}
+
+.tablas th {
+    font-size: 1.7rem;
+    font-weight: 850;
+    color: white;
+    background-color: grey;
+    -webkit-text-stroke: 1px black;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+}
+
+.tablas td,
+tr {
+    border: 1px solid black;
+    background-color: #80808048;
+    font-weight: 550;
+    padding: .4rem;
+}
+
+
+
+
+.subtitulos-tablas {
+    background-color: rgb(168, 14, 91);
+    color: white;
+    font-weight: 750;
+
+}
+
+/* Cards Details */
+
+.main-details {
+    min-height: 90vh;
+}
+
+
+.container-details {
+    border: 2px solid rgb(170, 169, 169);
+    border-radius: 1rem;
+    width: 90%;
+    padding-block: 2rem;
+    padding-inline: 1.5rem;
+}
+
+.box-detalles {
+    background-color: #9b054b;
+}
+
+.cuerpo-details h5 {
+    font-weight: 900;
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1.6px rgb(5, 5, 5);
+}
+
+.cuerpo-details h6 {
+    font-size: 1.4rem;
+    color: rgb(219, 219, 219);
+}
+
+.cuerpo-details p,
+.lista-details,
+.price-date-details h6 {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px rgb(5, 5, 5);
+}
+
+.lista-details {
+    font-weight: 700;
+}
+
+.price-date-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+
+/* Contact */
+
+.formulario1 {
+    border: 2px solid rgb(87, 85, 85);
+    width: 50%;
+    background-color: rgb(218, 215, 215);
+}
+
+.input-mail-name {
+    width: 20rem;
+}
+
+.input-text-area {
+    width: 23rem;
+    height: 300px;
+}
+
+/* Footer */
+
+.pie-pagina {
+    padding: 0 4rem 0 1rem;
+    background-color: rgb(92, 92, 92);
+    border-top: 4px double rgb(255, 255, 255);
+}
+
+.pie-pagina p {
+    font-weight: 900;
+    margin: 0;
+    color: #ffffff;
+}
+
+.social {
+    width: 3rem;
+    border: 8px solid black;
+    border-radius: 1rem;
+}
+
+
+
+
+
+/* Responsive */
+
+@media (max-width:768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buscador {
+        width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+
+    .pie-pagina {
+        padding: 0;
+    }
+
+    .tablas th {
+        font-size: 1.4rem;
+        font-weight: 800;
+    }
+
+    .subtitulos-tablas {
+        font-weight: 500;
+        font-size: .8rem;
+    }
+
+    .tablas td,
+    tr {
+        padding: .2rem;
+    }
+
+    .tablas {
+        width: 100%;
+    }
+
+    .carta-details {
+        width: auto;
+        height: auto;
+    }
+
+    .price-date-details {
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 1352px) {
+    .formulario1 {
+        width: 80%;
+    }
+
+    .input-mail-name {
+        width: 60vw;
+    }
+
+    .input-text-area {
+        width: 62vw;
+    }
+
+}
