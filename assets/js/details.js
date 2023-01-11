@@ -11,8 +11,8 @@ createApp({
   created() {
     fetch("https://mindhub-xj03.onrender.com/api/amazing")
       .then((resolve) => resolve.json())
-      .then((datos) => {
-        this.events = datos.events;
+      .then((data) => {
+        this.events = data.events;
         this.generateId(this.events);
       })
       .catch((error) => console.log(error));
