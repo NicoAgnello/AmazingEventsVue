@@ -16,7 +16,6 @@ createApp({
       .then((data) => {
         this.filterByURL(data);
         this.filterEvents = [...this.events];
-        document.getElementById("message").innerHTML = "";
         this.categories = [...new Set(data.events.map((event) => event.category))];
       })
       .catch((error) => console.log(error));
@@ -32,28 +31,34 @@ createApp({
         this.events = eventsData.events.filter((evento) => evento.date < eventsData.currentDate);
       }
     },
-    dobleFiltro: function () {
-      let eventosFiltradosPorBusqueda = this.events.filter((evento) =>
+    busquedaPorTexto: function () {
+      let eventosFiltrados = this.events.filter((evento) =>
         evento.name.toLowerCase().includes(this.serchValue.toLowerCase())
       );
-      if (this.checked.length === 0) {
-        this.filterEvents = eventosFiltradosPorBusqueda;
-      } else {
-        let eventosFiltradosPorCheck = eventosFiltradosPorBusqueda.filter((event) =>
-          this.checked.includes(event.category)
-        );
-        if (eventosFiltradosPorCheck.length === 0) {
-          this.generarError();
-        } else {
-          document.getElementById("message").innerHTML = "";
-          this.filterEvents = eventosFiltradosPorCheck;
-        }
-      }
+      return eventosFiltrados;
     },
-    generarError: function () {
-      this.filterEvents = "";
-      let template = `<h2 class="text-center p-4">No matches, please change filters</h2>`;
-      document.getElementById("message").innerHTML = template;
+    filtroCheckbox: function (eventsToFilter) {
+      const filtrosAplicados = [];
+      for (const input of this.checked) {
+        filtrosAplicados.push(input.toLowerCase());
+      }
+      console.log(filtrosAplicados);
+      if (filtrosAplicados.length === 0) {
+        return eventsToFilter;
+      }
+      const eventosFiltrados = eventsToFilter.filter((evento) =>
+        filtrosAplicados.includes(evento.category.toLowerCase())
+      );
+      return eventosFiltrados;
+    },
+    dobleFiltro: function () {
+      const eventosFiltradosPorBusqueda = this.busquedaPorTexto();
+      const eventosFiltradosPorCheck = this.filtroCheckbox(eventosFiltradosPorBusqueda);
+      if (eventosFiltradosPorCheck.length === 0) {
+        this.filterEvents = null;
+      } else {
+        this.filterEvents = eventosFiltradosPorCheck;
+      }
     },
   },
 }).mount("#app");
