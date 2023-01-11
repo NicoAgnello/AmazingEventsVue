@@ -51,13 +51,13 @@
             <div class="container-fluid">
                 <div id="checkbox-js" class="col-12 col-md-12 col-xl-6 d-flex flex-column flex-md-row justify-content-evenly gap-3  align-items-center">
                     <label v-if="categories" v-for="category of categories" class="d-flex flex-column ">
-                        <input v-on:change="dobleFiltro" v-model="checked" :value="category" class="checkboxes" :id="category" type="checkbox" :name="category">
+                        <input v-on:change="crossFilter" v-model="checked" :value="category" class="checkboxes" :id="category" type="checkbox" :name="category">
                         {{category}}
                     </label>
                 </div>
                 <form  class="d-flex buscador col-12 col-md-12 col-xl-5" role="search" >
                     <input v-model="serchValue" id="buscador-js" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
-                    <button v-on:click="dobleFiltro" id="boton-buscar" class="btn btn-outline-success" type="button"><img class="search-icon"
+                    <button v-on:click="crossFilter" id="boton-buscar" class="btn btn-outline-success" type="button"><img class="search-icon"
                             src="./assets/img/search-icon.svg" alt="search-icon"></button>
                 </form>
             </div>

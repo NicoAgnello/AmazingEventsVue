@@ -22,42 +22,39 @@ createApp({
   },
   methods: {
     filterByURL: function (eventsData) {
-      const sitio = document.URL.split("/").pop().split(".").shift();
-      if (sitio === "index" || sitio === "") {
+      const site = document.URL.split("/").pop().split(".").shift();
+      if (site === "index" || site === "") {
         this.events = [].concat(eventsData.events);
-      } else if (sitio === "upcoming") {
-        this.events = eventsData.events.filter((evento) => evento.date > eventsData.currentDate);
-      } else if (sitio === "past") {
-        this.events = eventsData.events.filter((evento) => evento.date < eventsData.currentDate);
+      } else if (site === "upcoming") {
+        this.events = eventsData.events.filter((event) => event.date > eventsData.currentDate);
+      } else if (site === "past") {
+        this.events = eventsData.events.filter((event) => event.date < eventsData.currentDate);
       }
     },
-    busquedaPorTexto: function () {
-      let eventosFiltrados = this.events.filter((evento) =>
+    searchByText: function () {
+      let filterEvents = this.events.filter((evento) =>
         evento.name.toLowerCase().includes(this.serchValue.toLowerCase())
       );
-      return eventosFiltrados;
+      return filterEvents;
     },
-    filtroCheckbox: function (eventsToFilter) {
-      const filtrosAplicados = [];
+    searchByCheckbox: function (eventsToFilter) {
+      const appliedFilters = [];
       for (const input of this.checked) {
-        filtrosAplicados.push(input.toLowerCase());
+        appliedFilters.push(input.toLowerCase());
       }
-      console.log(filtrosAplicados);
-      if (filtrosAplicados.length === 0) {
+      if (appliedFilters.length === 0) {
         return eventsToFilter;
       }
-      const eventosFiltrados = eventsToFilter.filter((evento) =>
-        filtrosAplicados.includes(evento.category.toLowerCase())
-      );
-      return eventosFiltrados;
+      const filterCheckbox = eventsToFilter.filter((event) => appliedFilters.includes(event.category.toLowerCase()));
+      return filterCheckbox;
     },
-    dobleFiltro: function () {
-      const eventosFiltradosPorBusqueda = this.busquedaPorTexto();
-      const eventosFiltradosPorCheck = this.filtroCheckbox(eventosFiltradosPorBusqueda);
-      if (eventosFiltradosPorCheck.length === 0) {
+    crossFilter: function () {
+      const filterEventsBySerch = this.searchByText();
+      const filterEventsByCkeck = this.searchByCheckbox(filterEventsBySerch);
+      if (filterEventsByCkeck.length === 0) {
         this.filterEvents = null;
       } else {
-        this.filterEvents = eventosFiltradosPorCheck;
+        this.filterEvents = filterEventsByCkeck;
       }
     },
   },

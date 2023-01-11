@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div id="app">
     <header class="col-12 d-flex justify-content-between bg-dark">
         <img class="imagen-logo" src="./assets/img/LogoAmazingEvents.png" alt="logo-amazing">
         <nav class="navbar navbar-expand-lg bg-dark">
@@ -47,9 +48,26 @@
 
     <main class="d-flex flex-column justify-content-start align-items-center main-details">
         <h1 class="col-12">Details</h1>
-        <div id="contenedor-details"  class="container-details mt-5">
-        <div id="message" class="text-center fs-1">Loading...</div>
-            
+        <div v-if="eventId" class="row d-flex flex-row justify-content-evenly gap-2 ">
+            <img class=" col-11 col-xl-5 d-flex justify-content-center "
+                :src="eventId.image" :alt="eventId.name">
+            <div class="card col-11 col-xl-6 box-detalles">
+                <div class="card-body cuerpo-details ">
+                    <h5 class=" text-center ">{{eventId.name}}</h5>
+                    <p class="card-text text-center ">{{eventId.description}}</p>
+                    <ul class="d-flex flex-column gap-3 text-center p-0 lista-details">
+                        <li class="list-group-item">Category:{{eventId.category}}</li>
+                        <li class="list-group-item">Place: {{eventId.place}}</li>
+                        <li class="list-group-item">Capacity: {{eventId.capacity}} </li>
+                        <li v-if="eventId.assistance" class="list-group-item">Assistance: {{eventId.assistance}}</li>
+                        <li v-else class="list-group-item">Estimate: {{eventId.estimate}}</li>
+                    </ul>
+                    <div class=" price-date-details p-2">
+                        <h6 class="card-title text-center">{{eventId.date}}</h6>
+                        <h6 class="card-title text-center">Price: ${{eventId.price}}</h6>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -62,11 +80,12 @@
         <p>Cohort 41</p>
     </footer>
 
-
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-        <script src="./assets/js/details.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/details.js"></script>
 </body>
 
 </html>
