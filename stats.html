@@ -47,13 +47,9 @@
         </nav>
     </header>
     <section class="altura-total">
-        <div class="col-12 d-flex">
-            <button class="col-1 btn btn-light boton">&lt;</button>
-            <h1 class="col-10 bg-light">STATS</h1>
-            <button class="col-1 btn btn-light boton">&gt;</button>
-        </div>
+            <h1 class="col-12 bg-light">STATS</h1>
         <article class="tablas-info p-3 d-flex justify-content-center align-items-center bg-light">
-            <h6>Tablas</h6>
+            <h6>Table</h6>
             <table class="col-12 tablas">
                 <thead>
                     <tr>
@@ -84,7 +80,7 @@
                         <td>Percentage of attendance</td>
                     </tr>
                 </thead>
-                <tbody v-if="upcomingRevenueAttdc" v-for="event of upcomingRevenueAttdc">
+                <tbody v-if="upcomingCategory" v-for="event of upcomingCategory">
                     <tr>
                         <td>{{event.category}}</td>
                         <td>{{event.revenue}} $</td>
@@ -103,7 +99,7 @@
                         <td>Percentage of attendance</td>
                     </tr>
                 </thead>
-                <tbody v-if="pastRevenueAttdc" v-for="event of pastRevenueAttdc">
+                <tbody v-if="pastCategory" v-for="event of pastCategory">
                     <tr>
                         <td>{{event.category}}</td>
                         <td>{{event.revenue}} $</td>
