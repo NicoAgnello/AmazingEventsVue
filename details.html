@@ -46,10 +46,10 @@
         </nav>
     </header>
 
-    <main class="d-flex flex-column justify-content-start align-items-center main-details">
+    <main class="d-flex flex-column justify-content-start align-items-center main-details bg-secondary">
         <h1 class="col-12">Details</h1>
-        <div v-if="eventId" class="row d-flex flex-row justify-content-evenly gap-2 ">
-            <img class=" col-11 col-xl-5 d-flex justify-content-center "
+        <div v-if="eventId" class="row d-flex flex-row justify-content-evenly align-items-center m-5 gap-2">
+            <img class=" col-11 col-xl-5 d-flex justify-content-center"
                 :src="eventId.image" :alt="eventId.name">
             <div class="card col-11 col-xl-6 box-detalles">
                 <div class="card-body cuerpo-details ">

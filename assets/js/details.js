@@ -3,9 +3,8 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      events: null,
-      eventId: null,
-      locationSearch: null,
+      events: [],
+      eventId: [],
     };
   },
   created() {
@@ -22,7 +21,7 @@ createApp({
       let stringUrlWithID = location.search;
       let generarUrl = new URLSearchParams(stringUrlWithID);
       let id = generarUrl.get("id");
-      this.eventId = events.find((evento) => evento._id === id);
+      this.eventId = events.find((evento) => evento._id == id);
     },
   },
 }).mount("#app");

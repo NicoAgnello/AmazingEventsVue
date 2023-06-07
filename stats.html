@@ -83,8 +83,8 @@
                 <tbody v-if="upcomingCategory" v-for="event of upcomingCategory">
                     <tr>
                         <td>{{event.category}}</td>
-                        <td>{{event.revenue}} $</td>
-                        <td>{{event.attendance}} %</td>
+                        <td>{{event.revenue.toLocaleString('de-DE')}} $</td>
+                        <td>{{event.attendance.toFixed(2)}} %</td>
                     </tr>
                 </tbody>
             </table>
@@ -102,8 +102,8 @@
                 <tbody v-if="pastCategory" v-for="event of pastCategory">
                     <tr>
                         <td>{{event.category}}</td>
-                        <td>{{event.revenue}} $</td>
-                        <td>{{event.attendance}} %</td>
+                        <td>{{event.revenue.toLocaleString('de-DE')}} $</td>
+                        <td>{{event.attendance.toFixed(2)}} %</td>
                     </tr>
                 </tbody>
             </table>

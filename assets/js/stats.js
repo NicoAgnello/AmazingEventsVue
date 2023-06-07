@@ -43,14 +43,17 @@ createApp({
     eventsByCategory: function (eventsData) {
       const revenueAttendanceUpcoming = eventsData.map((e) => ({
         ...e,
-        revenue: (e.price * (e.estimate ?? e.assistance)).toLocaleString(),
-        attendance: (((e.assistance ?? e.estimate) / e.capacity) * 100).toFixed(2),
+        revenue: (e.price * (e.estimate ?? e.assistance)),
+        attendance: (((e.assistance ?? e.estimate) / e.capacity) * 100),
         aux: 1,
       }));
+
       let upcomingObject = {};
+
       for (const event of revenueAttendanceUpcoming) {
         if (!Object.hasOwn(upcomingObject, event.category)) {
           upcomingObject[event.category] = { ...event };
+          console.log(upcomingObject);
         } else {
           upcomingObject[event.category].revenue += event.revenue;
           upcomingObject[event.category].attendance += event.attendance;
@@ -61,6 +64,7 @@ createApp({
       upcomingObject.forEach((event) => {
         event.attendance /= event.aux;
       });
+
       if (eventsData == this.pastEvents) {
         this.pastCategory = upcomingObject;
       } else {
